@@ -38,8 +38,9 @@ Both corporate employees and end consumers who interact with other companies usi
 2) Registration of staff - The company administrator register's the staff's email address and the associated public key into the smart contract.
 3) Suspension and Termination of account - The company administrator can suspend or terminate a staff's email address in the smart contract.
 4) Setting approval requirements - The company administrator can add and modify the list of email addresses required to approve a new email address to prevent unauthorised account creations.
-5) Signing off the email -  The email author produces a digital signature of the current timestamp using the private key associated with the public key pair registered to the email address and includes the public key and digital signature in the email signature before delivering it to the receiver.
-6) Verification of the email -  The email receiver verifies the public key and digital signature in the email signature in the email verification portal hosted in the company's website.
+5) Approving new email address - The email address in the list of email address approvals can approve a pending email address under his/her purview.
+6) Signing off the email -  The email author produces a digital signature of the current timestamp using the private key associated with the public key pair registered to the email address and includes the public key and digital signature in the email signature before delivering it to the receiver.
+7) Verification of the email -  The email receiver verifies the public key and digital signature in the email signature in the email verification portal hosted in the company's website.
 
 **Outcomes of this solution**
 
