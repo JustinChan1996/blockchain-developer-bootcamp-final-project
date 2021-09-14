@@ -7,7 +7,7 @@ Final project for Consensys blockchain developer online bootcamp 2020
 
 **How Mailrify works to protect corporate users against fraudulent emails**
 
-1. Companies can store a registry of employee's email address map to their individual public keys in the smart contract.
+1. Companies can store a registry of employee's email address map to their individual public keys in the smart contract. For privacy concerns, the hash of the email address will be used while the company email address list will also be stored in encrypted form for the company administrator to view. 
 2. When the employee wants to send an email, the employee produces a digital signature of the current timestamp by encrypting the data with the private key of the corresponding public key.
 3. The recipient receives the email with the digital signature and corresponding public key.
 4. The recipient can verify if it is the email is a legitimate company email address by verifying the signature and public key in the email verification portal hosted in the company's website(The only trusted party here to prevent verification using a website with a spoofed identity).
