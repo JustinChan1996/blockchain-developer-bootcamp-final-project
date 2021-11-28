@@ -10,6 +10,7 @@
 
 1. Run the `yarn install` command to install all the package dependencies
 2. Run the `truffle compile` command to compile the smart contract source code files.
+3. In another terminal window, run the `ganache-cli` command to start a local blockchain for testing.
 3. Run the `truffle test` command to run all the unit tests.
 4. Set the correct port number for the development blockchain in the truffle-config.js file.
 5. Run the `truffle migrate development` command to deploy smart contract to local testnet.
