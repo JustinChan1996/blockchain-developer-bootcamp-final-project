@@ -19,7 +19,7 @@
 
 If user does not have an Ethereum seed phrase
 
-1. Generate a random 12 word seed phrase to generate 
+1. Generate a random 12 word seed phrase. 
 2. Paste the seed phrase generated in step 1 in the `const mnemonic =` section of the truffle-config.js file. 
 3. Generate an Ethereum address based on the seed phrase.
 4. Paste the Ethereum address in the `from:` field in the ropsten section of the network section of the truffle-config.js file. 
