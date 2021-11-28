@@ -2,7 +2,7 @@
 
 **Front end URL location:** https://justinchan1996.github.io/EthCoupon-FrontEnd/#/
 
-**Walkthrough video URL:**
+**Walkthrough video URL:** https://www.youtube.com/watch?v=DUIWO0e_8RY
 
 **Ropsten Smart Contract Address:** `0xE11291A837C7d72D05381d3c89F8292851fFFaFf`
 
