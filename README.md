@@ -4,6 +4,8 @@
 
 **Walkthrough video URL:** https://www.youtube.com/watch?v=DUIWO0e_8RY
 
+**Public Ethereum wallet for certification:** `0x28cd15e5B23a8bA95Bb4660c3d305Fb18081c517`
+
 **Ropsten Smart Contract Address:** `0xE11291A837C7d72D05381d3c89F8292851fFFaFf`
 
 **Installation steps:**
