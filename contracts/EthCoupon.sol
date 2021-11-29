@@ -87,14 +87,44 @@ contract EthCoupon is ReentrancyGuard {
     uint256 private totalFunds;
     
     // List of events
+
+    /// @notice Emitted when a promotion is added
+    /// @param couponHash Hash of the promotion code
+    /// @param sponsorAddress Address of the promotion creator
+    /// @param targetAddress Address where the coupon holder only can spend the redeemed Ether at
+    /// @param couponCode Promotion code
+    /// @param totalEth Total Ether deposited into the promotion by the creator
+    /// @param amtPerAddress Amount deposited into the coupon to be spend once redemeed by an address
+    /// @param startDate Start date of the promotion
+    /// @param endDate End date of the promotion
+    /// @param minRedeemAmt Minimum amount that the user can spent from the coupon at a single transaction
+    /// @param maxRedeemAmt Maximum amount that the user can spent from the coupon at a single transaction
+    /// @param date Date Promotion was created
     event Promotion(bytes32 indexed couponHash,address indexed sponsorAddress,address indexed targetAddress,string couponCode,uint256 totalEth,uint256 amtPerAddress,uint256 startDate,uint256 endDate,uint256 minRedeemAmt,uint256 maxRedeemAmt,uint256 dateCreated);
     
+    /// @notice Emitted when a promotion's funds are top up
+    /// @param couponHash Hash of the promotion code of the promotion that was top up
+    /// @param amount Amount top up
+    /// @param date Date top up
     event TopUp(string indexed couponHash, uint256 amount, uint256 date);
     
+    /// @notice Emitted when a coupon was redeemed by an address
+    /// @param couponHash Hash of the promotion code of the coupon redeemed by the address
+    /// @param user Address that redeemed the coupon
+    /// @param RedeemID Hash of promotion code and redeemer address combined to act as identifier for coupon
+    /// @param date Date Coupon was redeemed
     event Redeem(bytes32 indexed couponHash, address indexed user, bytes32 RedeemID,uint256 date);
 
+    /// @notice Emitted when a coupon transaction was made
+    /// @param RedeemID Hash of promotion code and redeemer address combined to act as identifier for coupon
+    /// @param couponAmt Amount spent from coupon
+    /// @param walletAmt Amount spent from address balance
     event Transaction(bytes32 indexed RedeemID, uint256 couponAmt, uint256 walletAmt);
 
+    /// @notice Emitted when leftover promotion funds are collected by the creator after the promotion ends
+    /// @param couponHash Hash of the promotion code to collect leftover funds from
+    /// @param amount Leftover Ether amount collected by creator
+    /// @param date Date Leftover Ether was collected
     event CollectLeftOver(bytes32 indexed couponHash, uint256 amount, uint256 date);
     
     // List of modifiers
@@ -130,8 +160,8 @@ contract EthCoupon is ReentrancyGuard {
    /// @param targetAddress Address where the redeemed Ether can only be transferred to.
    /// @param startDate Start Date of the promotion
    /// @param endDate End Date of the promotion
-   /// @param minRedeemAmt minimum amount that the user can spent from the coupon at a single transaction.
-   /// @param maxRedeemAmt maximum amount that the user can spent from the coupon at a single transaction.
+   /// @param minRedeemAmt Minimum amount that the user can spent from the coupon at a single transaction.
+   /// @param maxRedeemAmt Maximum amount that the user can spent from the coupon at a single transaction.
    function mint(string memory promoCode, uint256 totalPerAddress, address targetAddress, uint256 startDate, uint256 endDate, uint256 minRedeemAmt, uint256 maxRedeemAmt) public payable{
        
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
@@ -203,9 +233,11 @@ contract EthCoupon is ReentrancyGuard {
        emit TopUp(promoCode, msg.value, block.timestamp);
    }
    
-   /// @notice The checkPromotionalBalance function enables the promotion sponsor to check the leftOver and unspentEther of the promotion.
+   /// @notice The checkPromotionalBalance function enables the promotion sponsor to check the leftOver and unspentEther of the promotion
    /// @dev Only the promotion sponsor can call this function
-   /// @param promoCode Promotion code of the promotion to check the leftover and unspent Ether.
+   /// @param promoCode Promotion code of the promotion to check the leftover and unspent Ether
+   /// @return leftOver
+   /// @return unspentEther
    function checkPromotionalBalance(string memory promoCode) public view IsSponsorAddress(promoCode) returns(uint256 leftOver,uint256 unspentEther) {
       bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
       leftOver = PromotionDetails[hashPromo].totalEth;
@@ -265,9 +297,10 @@ contract EthCoupon is ReentrancyGuard {
       emit Transaction(hashPromo, couponAmt, msg.value);
    }
    
-    /// @notice The checkCouponBalance function enables an account holder to check a coupon's balance
+   /// @notice The checkCouponBalance function enables an account holder to check a coupon's balance
    /// @dev Only the coupon holder can call this function
    /// @param promoCode Promotion code of the coupon the user wants to check the balance of.
+   /// @return amt
    function checkCouponBalance(string memory promoCode) public view IsValidHolder(promoCode) returns(uint256 amt) {
         bytes32 promoUser = keccak256(abi.encodePacked(promoCode,msg.sender));
         amt = CouponList[promoUser].existingBalance;
@@ -275,6 +308,13 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The checkPromotionDetails function enables anyone to check the promotion details of a promotion
    /// @param promoCode Promotion code of the promotion to be enquired.
+   /// @return totalPerAddress
+   /// @return isPromoValid
+   /// @return targetAddress
+   /// @return startDate
+   /// @return endDate
+   /// @return minRedeemAmt
+   /// @return maxRedeemAmt
    function checkPromotionDetails(string memory promoCode) public view returns(uint256 totalPerAddress, bool isPromoValid , address targetAddress, uint256 startDate, uint256 endDate, uint256 minRedeemAmt, uint256 maxRedeemAmt){
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
        totalPerAddress = PromotionDetails[hashPromo].amtPerAddress;
