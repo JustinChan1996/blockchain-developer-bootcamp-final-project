@@ -1,14 +1,8 @@
-export const ADDRESS = '0xE11291A837C7d72D05381d3c89F8292851fFFaFf' // Ropsten address
+export const ADDRESS = 'INSERT CONTRACT ADDRESS HERE' // Smart Contract Address
 
-export const CHAIN_ID = 3 // Ropsten chain ID
+export const CHAIN_ID = 0 // chain ID
 
-export const NETWORK_NAME = 'Ropsten' // Ropsten Network name
-
-// export const ADDRESS = '0xE13DB8A5b689b83D25332B32d3bb864a896c352b' // localhost address
-
-// export const CHAIN_ID = 1337 // localhost chain ID
-
-// export const NETWORK_NAME = 'localhost' // localhost Network name
+export const NETWORK_NAME = 'INSERT NETWORK NAME HERE' // Network Name
 
 
 export const ABI = [

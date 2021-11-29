@@ -1,3 +1,13 @@
+# Configuring the smart contract details for the web site #
+
+In the file \src\ABI.js, 
+
+1) Set the `export const ADDRESS = ` value to the smart contract address.
+
+2) Set the `export const CHAIN_ID = ` value to the chain ID of the smart contracts's blockchain to run on.
+
+3) Set the `export const NETWORK_NAME = ` value to the network name of the smart contracts' blockchain to run on.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
