@@ -124,6 +124,14 @@ contract EthCoupon is ReentrancyGuard {
    }
    
    /// @notice The mint function creates a new promotion code that accepts parameter name, total Eth per address, target address, start date, end date, minimum redeem amount and maximum redeem amount
+   /// @dev The promotion code must not be used by any promotion before
+   /// @param promoCode Promotion Code
+   /// @param totalPerAddress Amount of Ether deposited to an address when redeemed.
+   /// @param targetAddress Address where the redeemed Ether can only be transferred to.
+   /// @param startDate Start Date of the promotion
+   /// @param endDate End Date of the promotion
+   /// @param minRedeemAmt minimum amount that the user can spent from the coupon at a single transaction.
+   /// @param maxRedeemAmt maximum amount that the user can spent from the coupon at a single transaction.
    function mint(string memory promoCode, uint256 totalPerAddress, address targetAddress, uint256 startDate, uint256 endDate, uint256 minRedeemAmt, uint256 maxRedeemAmt) public payable{
        
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
@@ -166,6 +174,7 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The collectLeftoverEther function enables the promotion sponsor to collect unspent Ether after the promotion ends.
    /// @dev Only the promotion sponsor can call this function
+   /// @param promoCode Promotion code of the promotion to collect the leftover Ether after the promotion ends
    function collectLeftoverEther(string memory promoCode) public IsSponsorAddress(promoCode) nonReentrant{
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
        // Check if promotion date is expired already
@@ -184,6 +193,7 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The topUp function enables the promotion sponsor to top up the promotion amount for a promotion code as long as the promotion is valid.
    /// @dev Only the promotion sponsor can call this function
+   /// @param promoCode Promotion code of the promotion funds to be top up with.
    function topUp(string memory promoCode) public payable IsSponsorAddress(promoCode) IsValidDate(promoCode){
        require(msg.value > 0,"Top up value must be greater than 0");
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
@@ -195,6 +205,7 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The checkPromotionalBalance function enables the promotion sponsor to check the leftOver and unspentEther of the promotion.
    /// @dev Only the promotion sponsor can call this function
+   /// @param promoCode Promotion code of the promotion to check the leftover and unspent Ether.
    function checkPromotionalBalance(string memory promoCode) public view IsSponsorAddress(promoCode) returns(uint256 leftOver,uint256 unspentEther) {
       bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
       leftOver = PromotionDetails[hashPromo].totalEth;
@@ -203,6 +214,7 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The redeem function enables an account holder to redeem a promotion coupon based on the promotion code as long as the promotion is valid.
    /// @dev Sponsor and target address cannot call the redeem function to redeem the promotion code that is assigned.
+   /// @param promoCode Promotion code of the coupon the user wants to redeem.
    function redeem(string memory promoCode) public IsValidDate(promoCode){
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
         // sponsor cannot redeem coupon
@@ -226,6 +238,8 @@ contract EthCoupon is ReentrancyGuard {
    
    /// @notice The transaction function enables an account holder to spend a coupon's value for a redeemed coupon
    /// @dev Only the coupon holder can call this function
+   /// @param promoCode Promotion code of the coupon the user wants to do transaction with.
+   /// @param couponAmt Amount the user wants to use from the coupon when making a transaction.
    function transaction(string memory promoCode,uint256 couponAmt) public payable IsValidDate(promoCode) IsValidHolder(promoCode) nonReentrant{
       bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
        // check if amount from wallet is a non negative number
