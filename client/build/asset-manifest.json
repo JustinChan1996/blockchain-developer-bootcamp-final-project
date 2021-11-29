@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/EthCoupon-FrontEnd/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/EthCoupon-FrontEnd/static/js/main.d2836b99.chunk.js",
+    "main.js.map": "/EthCoupon-FrontEnd/static/js/main.d2836b99.chunk.js.map",
+    "runtime-main.js": "/EthCoupon-FrontEnd/static/js/runtime-main.d6fbde1f.js",
+    "runtime-main.js.map": "/EthCoupon-FrontEnd/static/js/runtime-main.d6fbde1f.js.map",
+    "static/js/2.f79a760e.chunk.js": "/EthCoupon-FrontEnd/static/js/2.f79a760e.chunk.js",
+    "static/js/2.f79a760e.chunk.js.map": "/EthCoupon-FrontEnd/static/js/2.f79a760e.chunk.js.map",
+    "static/js/3.066ad787.chunk.js": "/EthCoupon-FrontEnd/static/js/3.066ad787.chunk.js",
+    "static/js/3.066ad787.chunk.js.map": "/EthCoupon-FrontEnd/static/js/3.066ad787.chunk.js.map",
+    "index.html": "/EthCoupon-FrontEnd/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/EthCoupon-FrontEnd/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.f79a760e.chunk.js.LICENSE.txt": "/EthCoupon-FrontEnd/static/js/2.f79a760e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/EthCoupon-FrontEnd/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d6fbde1f.js",
+    "static/js/2.f79a760e.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.d2836b99.chunk.js"
+  ]
+}
