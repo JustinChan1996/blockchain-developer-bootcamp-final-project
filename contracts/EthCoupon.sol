@@ -267,12 +267,14 @@ contract EthCoupon is ReentrancyGuard {
    
     /// @notice The checkCouponBalance function enables an account holder to check a coupon's balance
    /// @dev Only the coupon holder can call this function
+   /// @param promoCode Promotion code of the coupon the user wants to check the balance of.
    function checkCouponBalance(string memory promoCode) public view IsValidHolder(promoCode) returns(uint256 amt) {
         bytes32 promoUser = keccak256(abi.encodePacked(promoCode,msg.sender));
         amt = CouponList[promoUser].existingBalance;
    }
    
    /// @notice The checkPromotionDetails function enables anyone to check the promotion details of a promotion
+   /// @param promoCode Promotion code of the promotion to be enquired.
    function checkPromotionDetails(string memory promoCode) public view returns(uint256 totalPerAddress, bool isPromoValid , address targetAddress, uint256 startDate, uint256 endDate, uint256 minRedeemAmt, uint256 maxRedeemAmt){
        bytes32 hashPromo = keccak256(abi.encodePacked(promoCode));
        totalPerAddress = PromotionDetails[hashPromo].amtPerAddress;
