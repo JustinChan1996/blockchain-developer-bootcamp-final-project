@@ -9,3 +9,7 @@ After the promotion time period ends, only the promotion sponsor who created it 
 **SWC-107: Reentrancy**
 
 In this smart contract, there are two functions which involves transfering Ether from the smart contract to another address which are `transaction()` and `collectLeftoverEther()`. Before any call functions to transfer Ether are called, all the state changes to the coupon's and promotion balances are made so that re-entrancy attacks will fail as the state would have already changed if the attack occurs.
+
+**SWC-102: Outdated Compiler Version**
+
+This smart contract only can compile using Solidity Compiler version 0.8.0 or higher because in Solidity v0.8.0 and higher, arithmetic operations revert on underflow and overflow. This is important as it shaves the need to use the SafeMath.sol library from OpenZeppelin to prevent unintended behaviour arising from arithmetic overflow/underflow.
