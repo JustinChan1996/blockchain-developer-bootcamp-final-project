@@ -99,7 +99,7 @@ contract EthCoupon is ReentrancyGuard {
     /// @param endDate End date of the promotion
     /// @param minRedeemAmt Minimum amount that the user can spent from the coupon at a single transaction
     /// @param maxRedeemAmt Maximum amount that the user can spent from the coupon at a single transaction
-    /// @param date Date Promotion was created
+    /// @param dateCreated Date Promotion was created
     event Promotion(bytes32 indexed couponHash,address indexed sponsorAddress,address indexed targetAddress,string couponCode,uint256 totalEth,uint256 amtPerAddress,uint256 startDate,uint256 endDate,uint256 minRedeemAmt,uint256 maxRedeemAmt,uint256 dateCreated);
     
     /// @notice Emitted when a promotion's funds are top up

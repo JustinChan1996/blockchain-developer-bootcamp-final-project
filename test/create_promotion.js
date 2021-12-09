@@ -29,7 +29,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       const result = await contractInstance.mint(promoCode,totalPerAddress,targetAddress,startDate,endDate,minRedeemAmt,maxRedeemAmt,{from: accounts[0], value: web3.utils.toBN(web3.utils.toWei("2", "ether"))});
@@ -41,7 +41,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[0];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -58,7 +58,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("2", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -75,7 +75,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       const result = await contractInstance.mint(promoCode,totalPerAddress,targetAddress,startDate,endDate,minRedeemAmt,maxRedeemAmt,{from: accounts[0], value: web3.utils.toBN(web3.utils.toWei("1", "ether"))});
@@ -87,7 +87,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -104,7 +104,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -121,7 +121,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -140,7 +140,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       let err = null;
@@ -159,7 +159,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       await contractInstance.mint(promoCode,totalPerAddress,targetAddress,startDate,endDate,minRedeemAmt,maxRedeemAmt,{from: accounts[0], value: web3.utils.toBN(web3.utils.toWei("2", "ether"))});
@@ -174,7 +174,7 @@ contract("createPromotion", function (accounts) {
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
       const startDate = Math.round((new Date()).getTime() / 1000);
-      const endDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
       await contractInstance.mint(promoCode,totalPerAddress,targetAddress,startDate,endDate,minRedeemAmt,maxRedeemAmt,{from: accounts[0], value: web3.utils.toBN(web3.utils.toWei("2", "ether"))});
@@ -242,7 +242,7 @@ contract("createPromotion", function (accounts) {
       const promoCode = "test1";
       const totalPerAddress = web3.utils.toBN(web3.utils.toWei("1", "ether"));
       const targetAddress = accounts[1];
-      const startDate = Math.round((new Date(2021, 11, 01, 10, 33, 30)).getTime() / 1000);
+      const startDate = Math.round((new Date(2022, 10, 01, 10, 33, 30)).getTime() / 1000);
       const endDate = Math.round((new Date(2022, 11, 01, 10, 33, 30)).getTime() / 1000);
       const minRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.1", "ether"));
       const maxRedeemAmt = web3.utils.toBN(web3.utils.toWei("0.5", "ether"));
